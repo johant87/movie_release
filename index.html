@@ -10,20 +10,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 
+  <script>
+      function getSearchResult(){
+        var search = document.getElementById("title").value;
+        jQuery.getJSON("http://www.omdbapi.com/?t=" + search + "&y=&plot=short&r=json", function(result) {
+          jQuery.each(result, function(i, field){
+            jQuery("div").append(field + " ");
+          });
+        });
+      };
+  </script>
 </head>
 
 <body>
-<div id="movie-release"></div>
 
-<script>
-jQuery.getJSON("http://www.omdbapi.com/?t=batman+v+superman&y=&plot=short&r=json", function(result) {
-  jQuery.each(result, function(i, field){
-    jQuery("div").append(field + " ");
-  });
-});
-
-</script>
-
+<form id="searchForm">
+  Search for movie:<input type="text" name=movie_title id="title">
+  <input type="button" value="Submit" onClick="getSearchResult()">
+</form>
 
 
 <div></div>
