@@ -13,11 +13,12 @@
   <script>
       function getSearchResult(){
         var search = document.getElementById("title").value;
-        jQuery.getJSON("http://www.omdbapi.com/?t=" + search + "&y=&plot=short&r=json", function(result) {
-          jQuery.each(result, function(i, field){
-            jQuery("div").append(field + " ");
+        $.getJSON("http://www.omdbapi.com/?t=" + search + "&y=&plot=short&r=json", function(json) {
+            var div;
+              div = $('<div/>');
+              div.append("<div>" + json.Title + "</div>");
+              $('#movie').append(div);
           });
-        });
       };
   </script>
 </head>
@@ -28,10 +29,9 @@
   Search for movie:<input type="text" name=movie_title id="title">
   <input type="button" value="Submit" onClick="getSearchResult()">
 </form>
-
-
-<div></div>
-
+<div id="movie">
+  <div></div>
+</div>
 
 
 </body>
