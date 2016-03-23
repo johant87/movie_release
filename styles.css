@@ -2,6 +2,7 @@
 
 body {
   background-color: #04020a;
+  margin: 0;
 }
 
 #movie {
@@ -81,4 +82,31 @@ input[type=button]:hover {
 
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
   background-color: transparent;
+}
+
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(batmanvsuperman.jpg) no-repeat black;
+    background-size: cover;
+    background-color: #04020a;
+}
+
+.bgvid-color {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -99;
+  background-color: #24191c;
+  opacity: 0.9;
 }
