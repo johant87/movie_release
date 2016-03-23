@@ -1,0 +1,84 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+body {
+  background-color: #04020a;
+}
+
+#movie {
+  color: white;
+}
+
+h1 {
+  color: #f1f1f1;
+  font-size: 42px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+  color: #f1f1f1;
+  font-size: 36px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+:focus {
+    outline: none;
+}
+
+.center-div {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+hr {
+  border: 0;
+  width: 200px;
+  color: #9a2a4a;
+  background-color: #9a2a4a;
+  height: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.form-search {
+  width:490px;
+  margin: 0 auto;
+}
+input[type=text] {
+    background-color: transparent;
+    color: #f1f2f2;
+    height: 50px;
+    width: 330px;
+    border: solid 3px #9a2a4a;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 0 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+input[type=button] {
+    background-color: #9a2a4a;
+    color: #f1f2f2;
+    margin-left: 20px;
+    height: 56px;
+    width: 100px;
+    border: solid 3px #9a2a4a;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 0 10px;
+    font-family: 'Open Sans', sans-serif;
+    transition: 0.5s ease;
+}
+
+input[type=button]:hover {
+  background-color: #b14463;
+  border: solid 3px #b14463;
+  cursor:pointer
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color: transparent;
+}
