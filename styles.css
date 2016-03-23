@@ -97,7 +97,7 @@ video#bgvid {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background: url(batmanvsuperman.jpg) no-repeat black;
+    background: url(movie-reel22.jpg) no-repeat black;
     background-size: cover;
     background-color: #04020a;
 }
@@ -107,6 +107,6 @@ video#bgvid {
   width: 100%;
   height: 100%;
   z-index: -99;
-  background-color: #24191c;
+  background-color: #1b1b1b;
   opacity: 0.9;
 }
