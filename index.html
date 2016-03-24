@@ -20,21 +20,29 @@ imdbID
       function getSearchResult(){
         var search = document.getElementById("title").value;
         $.getJSON("http://www.omdbapi.com/?t=" + search + "&y=&plot=short&r=json", function(json) {
-            var span;
-              span = $('<span/>');
-              span.append("<span>" + json.Title + "</span>");
-              $('#movie').html(span);
-            var a;
-              a = $('<a/>');
-              a.append("<a class='button margin-right margin-top' href='http://www.imdb.com/title/" +json.imdbID + "'" + "target='_blank'>Movie info</a>");
-              $('#imdbLink').html(a);
-            var dateVar = json.Released;
-            var rlsDate = new Date(dateVar);
-            var currentDate = new Date()
-            rlsDays(rlsDate, currentDate)
+            if (json.Title == null){
+              var span;
+                span = $('<span/>');
+                span.append("<span>lol</span>");
+                $('#movie').html(span);
+              overLay()
+            }
+            else {
+              var span;
+                span = $('<span/>');
+                span.append("<h1><span id='days'></span> days left until " + json.Title + ", you can relax, not time yet.</h1></span>");
+                $('#movie').html(span);
+              var a;
+                a = $('<a/>');
+                a.append("<a class='button margin-right margin-top' href='http://www.imdb.com/title/" +json.imdbID + "'" + "target='_blank'>Movie info</a>");
+                $('#imdbLink').html(a);
+              var dateVar = json.Released;
+              var rlsDate = new Date(dateVar);
+              var currentDate = new Date()
+              rlsDays(rlsDate, currentDate)
+            }
           });
       };
-
 
       function rlsDays(rlsDate, currentDate){
         var millisecondsPerDay = 1000 * 60 * 60 * 24;
@@ -49,7 +57,7 @@ imdbID
       };
 
       function overLay() {
-        $(".overLay").toggle();
+        $(".overLay").slideToggle("slow");
       }
 
   </script>
@@ -76,7 +84,7 @@ imdbID
 
 <div class="overLay">
   <div class="center-div">
-    <h1><span id="days"></span> days left until <span id="movie"></span>, you can relax, not time yet.</h1>
+     <span id="movie"></span>
     <hr></hr>
     <div class="center-hor2">
       <div id="imdbLink"></div><button class="button margin-top" onClick="overLay()">Search again</button>
