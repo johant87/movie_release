@@ -16,11 +16,10 @@
       function getSearchResult(){
         var search = document.getElementById("title").value;
         $.getJSON("http://www.omdbapi.com/?t=" + search + "&y=&plot=short&r=json", function(json) {
-            var div;
-              div = $('<div/>');
-              div.append("<div>" + json.Title + "</div>");
-              $('#movie').html(div);
-              alert(json.Title)
+            var span;
+              span = $('<span/>');
+              span.append("<span>" + json.Title + "</span>");
+              $('#movie').html(span);
             var dateVar = json.Released;
             var rlsDate = new Date(dateVar);
             var currentDate = new Date()
@@ -32,9 +31,17 @@
         var millisecondsPerDay = 1000 * 60 * 60 * 24;
         var millisBetween = rlsDate.getTime() - currentDate.getTime();
         var days = millisBetween / millisecondsPerDay;
-        alert( Math.floor(days));
+        var daysResult = (Math.floor(days));
+        var span;
+          span = $('<span/>');
+          span.append("<span>" + daysResult + "</span>");
+          $('#days').html(span);
+        overLay()
       };
 
+      function overLay() {
+        $(".overLay").toggle();
+      }
 
   </script>
 </head>
@@ -55,11 +62,19 @@
       <input type="text" name=movie_title id="title" placeholder="Type your movie here...">
       <input type="button" value="Tell me!" onClick="getSearchResult()">
     </form>
-      <div id="movie">
-        <div></div>
-      </div>
   </div>
 </div>
+
+<div class="overLay">
+  <div class="center-div">
+    <h1><span id="days"></span> days left until <span id="movie"></span>, you can relax, not time yet.</h1>
+    <hr></hr>
+    <div class="center-hor">
+      <a class="button" href="http://www.imdb.com/title/" target="_blank">Movie info</a><button onClick="overLay()">Search again</button>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>
