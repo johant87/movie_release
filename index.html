@@ -10,8 +10,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 
+<!--
+  <a class="button margin-right margin-top" href="http://www.imdb.com/title/" target="_blank">Movie info</a>
 
-
+  $("#web").append("<a href='http://"+url+"' rel='external' data-direction='reverse'>"+url+"</a>");
+imdbID
+-->
   <script>
       function getSearchResult(){
         var search = document.getElementById("title").value;
@@ -20,12 +24,17 @@
               span = $('<span/>');
               span.append("<span>" + json.Title + "</span>");
               $('#movie').html(span);
+            var a;
+              a = $('<a/>');
+              a.append("<a class='button margin-right margin-top' href='http://www.imdb.com/title/" +json.imdbID + "'" + "target='_blank'>Movie info</a>");
+              $('#imdbLink').html(a);
             var dateVar = json.Released;
             var rlsDate = new Date(dateVar);
             var currentDate = new Date()
             rlsDays(rlsDate, currentDate)
           });
       };
+
 
       function rlsDays(rlsDate, currentDate){
         var millisecondsPerDay = 1000 * 60 * 60 * 24;
@@ -69,8 +78,8 @@
   <div class="center-div">
     <h1><span id="days"></span> days left until <span id="movie"></span>, you can relax, not time yet.</h1>
     <hr></hr>
-    <div class="center-hor">
-      <a class="button" href="http://www.imdb.com/title/" target="_blank">Movie info</a><button onClick="overLay()">Search again</button>
+    <div class="center-hor2">
+      <div id="imdbLink"></div><button class="button margin-top" onClick="overLay()">Search again</button>
     </div>
   </div>
 </div>
