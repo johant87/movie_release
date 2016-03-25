@@ -17,7 +17,10 @@
 imdbID
 -->
   <script>
+
+
       function getSearchResult(){
+        event.preventDefault();
         var search = document.getElementById("title").value;
         $.getJSON("http://www.omdbapi.com/?t=" + search + "&y=&plot=short&r=json", function(json) {
             if (json.Title == null){
@@ -96,9 +99,9 @@ imdbID
   <hr></hr>
   <h2>How many days until...</h2>
   <div class="center-hor">
-    <form id="searchForm" class="form-search" autocomplete="off">
+    <form id="searchForm" class="form-search" autocomplete="off" onSubmit="getSearchResult()">
       <input type="text" name=movie_title id="title" placeholder="Type your movie here...">
-      <input type="button" value="Tell me!" onClick="getSearchResult()">
+      <input type="button" value="Tell me!" id="searchBtn" onClick="getSearchResult()" >
     </form>
   </div>
 </div>
@@ -112,7 +115,6 @@ imdbID
     </div>
   </div>
 </div>
-
 
 </body>
 </html>
