@@ -10,15 +10,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 
-<!--
-  <a class="button margin-right margin-top" href="http://www.imdb.com/title/" target="_blank">Movie info</a>
-
-  $("#web").append("<a href='http://"+url+"' rel='external' data-direction='reverse'>"+url+"</a>");
-imdbID
--->
   <script>
-
-
       function getSearchResult(){
         event.preventDefault();
         var search = document.getElementById("title").value;
@@ -50,13 +42,16 @@ imdbID
           var textResult = "<h1>Looks like " + title + " is already out! better hurry to the theater.</h1>";
         }
         else if (daysResult < -30 && daysResult > -80) {
-          var textResult = "<h1>Looks like " + title + " Has been out for a while now, might be to late!</h1>";
+          daysResult = -daysResult;
+          var textResult = "<h1>Looks like " + title + " has been out for " + daysResult + " days now, might be to late!</h1>";
         }
         else if (daysResult < -80 && daysResult > -150) {
-          var textResult = "<h1>Yeah, to slow. Better check this site a little earlier next time, maybe see if " + title + " is out on Blu Ray or Netflix.</h1>";
+          daysResult = -daysResult;
+          var textResult = "<h1>Yeah, " + daysResult + " days to slow. Better check this site a little earlier next time, maybe see if " + title + " is out on Blu Ray or Netflix.</h1>";
         }
         else if (daysResult < -150) {
-          var textResult = "<h1>You must have been living under a rock, " + title + " is old, long gone have been its moments of glory in the theater. </h1>";
+          daysResult = -daysResult;
+          var textResult = "<h1>You must have been living under a rock, " + title + " is " + daysResult + " days old, long gone have been its moments of glory in the theater. </h1>";
         }
         else if (daysResult > 0 && daysResult < 10 ) {
           var textResult = "<h1>Almost time! Only <span id='days'></span> left for " + title + ", excitement is rising, better order those tickets before it’s too late.</h1>";
