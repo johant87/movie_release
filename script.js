@@ -1,3 +1,5 @@
+console.log(jQuery.ui)
+
     function getSearchResult(){
       event.preventDefault();
       var search = document.getElementById("title").value;
